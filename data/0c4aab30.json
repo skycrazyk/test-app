@@ -2,21 +2,21 @@
   {
     "name": "Python",
     "price": 5.35,
-    "image": "/public/python.png"
+    "image": "python.png"
   },
   {
     "name": "Go",
     "price": 7.55,
-    "image": "/public/go.png"
+    "image": "go.png"
   },
   {
     "name": "Node.js",
     "price": 9.99,
-    "image": "/public/node.png"
+    "image": "node.png"
   },
   {
     "name": ".NET",
     "price": 9.99,
-    "image": "/public/net.png"
+    "image": "net.png"
   }
 ]
