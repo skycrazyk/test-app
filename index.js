@@ -58,13 +58,10 @@ http
           switch (ext) {
             case '.png':
               contentType = 'image/png';
-            default:
-            // nodefault
           }
 
           res.writeHead(200, { 'Content-Type': contentType });
-          res.write(content);
-          res.end();
+          res.end(content);
         }
       });
     }
