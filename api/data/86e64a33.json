@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Vue",
+    "price": 5.35,
+    "image": "/public/vue.png"
+  },
+  {
+    "name": "React",
+    "price": 7.55,
+    "image": "/public/react.png"
+  },
+  {
+    "name": "Angular",
+    "price": 9.99,
+    "image": "/public/angular.png"
+  },
+  {
+    "name": "Prettier",
+    "price": 9.99,
+    "image": "/public/prettier.png"
+  }
+]
