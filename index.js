@@ -2,6 +2,8 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+const port = process.env.PORT || 8080;
+
 function getProducts(dataFiles) {
   return dataFiles.reduce((acc, fileName) => {
     try {
@@ -66,4 +68,4 @@ http
       });
     }
   })
-  .listen(8080);
+  .listen(port);
