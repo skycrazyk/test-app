@@ -52,7 +52,17 @@ http
             throw err;
           }
         } else {
-          res.writeHead(200);
+          const ext = path.extname(urlPath);
+          let contentType = '';
+
+          switch (ext) {
+            case '.png':
+              contentType = 'image/png';
+            default:
+            // nodefault
+          }
+
+          res.writeHead(200, { 'Content-Type': contentType });
           res.write(content);
           res.end();
         }
