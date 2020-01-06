@@ -15,8 +15,8 @@
     "image": "/logo/node.png"
   },
   {
-    "name": ".NET",
+    "name": "С#",
     "price": 9.99,
-    "image": "/logo/net.png"
+    "image": "/logo/ch.png"
   }
 ]
