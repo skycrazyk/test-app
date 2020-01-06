@@ -46,6 +46,30 @@ http
       res.write(JSON.stringify(products));
       res.end();
     }
+
+    // Список идентификаторов дилеров
+    else if (/^\/api\/dealers\/?/.test(urlPath)) {
+      fs.readdir('./data/', (err, dealers) => {
+        if (err) {
+          if (err.code === 'ENOENT') {
+            res.writeHead(404);
+            res.end();
+          } else {
+            res.writeHead(500);
+            res.end();
+          }
+        } else {
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(
+            JSON.stringify(
+              dealers.map(dealer => path.basename(dealer, '.json'))
+            )
+          );
+          res.end();
+        }
+      });
+    }
+
     // Все остальные запросы
     else {
       fs.readFile(path.join(__dirname, 'public', urlPath), (err, content) => {
@@ -54,7 +78,8 @@ http
             res.writeHead(404);
             res.end();
           } else {
-            throw err;
+            res.writeHead(500);
+            res.end();
           }
         } else {
           const ext = path.extname(urlPath);
