@@ -25,7 +25,8 @@ http
   .createServer(function(req, res) {
     const [urlPath, query] = req.url.split('?');
 
-    if (urlPath === '/') {
+    // Запрос товаров
+    if (/^\/api\/goods\/?/.test(urlPath)) {
       const params = new URLSearchParams(query);
       const dealers = params.get('dealers');
 
@@ -44,7 +45,9 @@ http
       res.writeHead(200, { 'Content-Type': 'application/json' });
       res.write(JSON.stringify(products));
       res.end();
-    } else {
+    }
+    // Все остальные запросы
+    else {
       fs.readFile(path.join(__dirname, 'public', urlPath), (err, content) => {
         if (err) {
           if (err.code === 'ENOENT') {
