@@ -21,8 +21,45 @@ function getProducts(dataFiles) {
   }, []);
 }
 
+class MyServerResponse extends http.ServerResponse {
+  writeHead(...props) {
+    let commonHeaders = { 'Access-Control-Allow-Origin': '*' };
+    let myProps = [];
+
+    if (props.length === 0) {
+      return this;
+    } else if (props.length === 1) {
+      const [statusCode] = props;
+      myProps = [statusCode, commonHeaders];
+    } else if (props.length === 2) {
+      const [statusCode, headersOrReasonPhrase] = props;
+
+      if (typeof headersOrReasonPhrase === 'string') {
+        // headersOrReasonPhrase is reasonPhrase
+        myProps = [statusCode, headersOrReasonPhrase, commonHeaders];
+      } else {
+        // headersOrReasonPhrase is headers
+        myProps = [statusCode, { ...headersOrReasonPhrase, ...commonHeaders }];
+      }
+    } else if (props.length === 3) {
+      const [statusCode, reasonPhrase, headers] = props;
+
+      myProps = [
+        statusCode,
+        reasonPhrase,
+        {
+          ...headers,
+          ...commonHeaders
+        }
+      ];
+    }
+
+    return super.writeHead(...myProps);
+  }
+}
+
 http
-  .createServer(function(req, res) {
+  .createServer({ ServerResponse: MyServerResponse }, function(req, res) {
     const [urlPath, query] = req.url.split('?');
 
     // Запрос товаров
@@ -43,8 +80,7 @@ http
       }
 
       res.writeHead(200, {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json'
       });
 
       res.write(JSON.stringify(products));
