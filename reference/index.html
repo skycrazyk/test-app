@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+    <style>
+      .logo {
+        width: 100%;
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="good in goods" :key="good.name">
+          <div>
+            <img
+              class="logo"
+              :src="`https://murmuring-tor-81614.herokuapp.com${good.image}`"
+              alt=""
+            />
+          </div>
+          <p>{{good.price}}</p>
+          <p>{{good.name}}</p>
+        </li>
+      </ul>
+    </div>
+    <script>
+      const app = new Vue({
+        data: {
+          goods: []
+        },
+        mounted() {
+          this.fetchGoods();
+        },
+        methods: {
+          async fetchGoods() {
+            const goods = await fetch(
+              'https://murmuring-tor-81614.herokuapp.com/api/goods/?dealers=0c4aab30'
+            )
+              .then(r => r.json())
+              .then(g => g || []);
+
+            this.goods.push(...goods);
+          }
+        }
+      });
+
+      app.$mount('#app');
+    </script>
+  </body>
+</html>
