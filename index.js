@@ -42,7 +42,11 @@ http
         products = getProducts(dataFiles);
       }
 
-      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.writeHead(200, {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      });
+
       res.write(JSON.stringify(products));
       res.end();
     }
