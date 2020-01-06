@@ -2,21 +2,21 @@
   {
     "name": "Vue",
     "price": 5.35,
-    "image": "vue.png"
+    "image": "/logo/vue.png"
   },
   {
     "name": "React",
     "price": 7.55,
-    "image": "react.png"
+    "image": "/logo/react.png"
   },
   {
     "name": "Angular",
     "price": 9.99,
-    "image": "angular.png"
+    "image": "/logo/angular.png"
   },
   {
     "name": "Prettier",
     "price": 9.99,
-    "image": "prettier.png"
+    "image": "/logo/prettier.png"
   }
 ]

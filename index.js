@@ -60,6 +60,13 @@ http
           switch (ext) {
             case '.png':
               contentType = 'image/png';
+              break;
+            case '.html':
+              contentType = 'text/html';
+              break;
+            case '.css':
+              contentType = 'text/css';
+              break;
           }
 
           res.writeHead(200, { 'Content-Type': contentType });
