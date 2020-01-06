@@ -25,7 +25,7 @@ http
   .createServer(function(req, res) {
     const [urlPath, query] = req.url.split('?');
 
-    if (urlPath === '/api/products/' || urlPath === '/api/products') {
+    if (urlPath === '/') {
       const params = new URLSearchParams(query);
       const dealers = params.get('dealers');
 
