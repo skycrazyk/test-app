@@ -1,21 +1,25 @@
 [
   {
     "name": "Vue",
+    "id": "vue",
     "price": 50.35,
     "image": "/logo/vue.png"
   },
   {
     "name": "React",
+    "id": "react",
     "price": 66.6,
     "image": "/logo/react.png"
   },
   {
     "name": "Angular",
+    "id": "angular",
     "price": 3.75,
     "image": "/logo/angular.png"
   },
   {
     "name": "Sass",
+    "id": "sass",
     "price": 11.11,
     "image": "/logo/sass.png"
   }

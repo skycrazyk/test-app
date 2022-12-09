@@ -1,21 +1,25 @@
 [
   {
     "name": "VS Code",
+    "id": "vscode",
     "price": 10.25,
     "image": "/logo/code.png"
   },
   {
     "name": "Sublime",
+    "id": "sublime",
     "price": 17.4,
     "image": "/logo/sublime.png"
   },
   {
     "name": "Vim",
+    "id": "vim",
     "price": 99.99,
     "image": "/logo/vim.png"
   },
   {
     "name": "WebStorm",
+    "id": "webstorm",
     "price": 33.43,
     "image": "/logo/webstorm.png"
   }

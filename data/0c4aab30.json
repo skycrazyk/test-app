@@ -1,21 +1,25 @@
 [
   {
     "name": "Python",
+    "id": "python",
     "price": 5.35,
     "image": "/logo/python.png"
   },
   {
     "name": "Go",
+    "id": "go",
     "price": 7.55,
     "image": "/logo/go.png"
   },
   {
     "name": "Node.js",
+    "id": "nodejs",
     "price": 9.99,
     "image": "/logo/node.png"
   },
   {
     "name": "С#",
+    "id": "csharp",
     "price": 9.99,
     "image": "/logo/ch.png"
   }
